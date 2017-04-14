@@ -125,7 +125,7 @@ function getLinearEquationRoot(a, b) {
  *   (0,1) (1,2)     => 0
  */
 function getAngleBetweenVectors(x1, y1, x2, y2) {
-	
+	 return Math.abs((Math.atan2(x1,y1))-(Math.atan2(x2,y2)));
     throw new Error('Not implemented');
 }
 
@@ -224,23 +224,18 @@ function roundToPowerOfTen(num, pow) {
  *   17 => true
  */
 function isPrime(n) {
-	/*if (n <= 1){
-	return false;}
-	else {
-	if (n <= 3){
-return true;}}
-    
-	else{
-		if (n*Math.abs(2) == 0 || n*Math.abs(3) == 0)
-	{return false;}}
+	 if (n <= 1)
+    return false;
+    else if (n <= 3)
+    return true;          
+ else if (n%2 == 0 || n%3 == 0)
+    return false;
     let i = 5;
-    while(i*i<=n){
-        if (n*Math.abs(i) == 0 || n*Math.abs(i + 2)==0)
-	return false;}
-	i = i + 6;
-	while(i*i<=n){
-        if (n*Math.abs(i) == 0 || n*Math.abs(i + 2)==0)
-			return true;} */
+    while(i * i <= n){
+        if (n%i== 0 || n%(i + 2) == 0)
+    return false;
+   i = i + 6;}
+    return true
     throw new Error('Not implemented');
 }
 
