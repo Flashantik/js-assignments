@@ -21,7 +21,9 @@
  *    'Tue, 26 Jan 2016 13:48:02 GMT' => Date()
  *    'Sun, 17 May 1998 03:00:00 GMT+01' => Date()
  */
-function parseDataFromRfc2822(value) {
+function parseDataFromRfc2822(value) 
+{
+    return Date.parse(value);
    throw new Error('Not implemented');
 }
 
@@ -37,6 +39,7 @@ function parseDataFromRfc2822(value) {
  *    '2016-01-19T08:07:37Z' => Date()
  */
 function parseDataFromIso8601(value) {
+    return Date.parse(value);
    throw new Error('Not implemented');
 }
 
@@ -55,8 +58,12 @@ function parseDataFromIso8601(value) {
  *    Date(2012,1,1)    => true
  *    Date(2015,1,1)    => false
  */
-function isLeapYear(date) {
-   throw new Error('Not implemented');
+function isLeapYear(date) { 
+    let year = date.getFullYear();
+    if (year%4 ==0 && year%100 !==0 || year%400==0) 
+        return true;
+    else return false;
+     throw new Error('Not implemented');
 }
 
 
@@ -69,14 +76,22 @@ function isLeapYear(date) {
  * @return {string}
  *
  * @example:
- *    Date(2000,1,1,10,0,0),  Date(2000,1,1,11,0,0)   => "01:00:00.000"
- *    Date(2000,1,1,10,0,0),  Date(2000,1,1,10,30,0)       => "00:30:00.000"
+ *    Date(2000,1,1,10,0,0),  Date(2000,1,1,11,0,0)         => "01:00:00.000"
+ *    Date(2000,1,1,10,0,0),  Date(2000,1,1,10,30,0)        => "00:30:00.000"
  *    Date(2000,1,1,10,0,0),  Date(2000,1,1,10,0,20)        => "00:00:20.000"
  *    Date(2000,1,1,10,0,0),  Date(2000,1,1,10,0,0,250)     => "00:00:00.250"
  *    Date(2000,1,1,10,0,0),  Date(2000,1,1,15,20,10,453)   => "05:20:10.453"
  */
 function timeSpanToString(startDate, endDate) {
-   throw new Error('Not implemented');
+  /* let hours
+    let minutes
+    let seconds
+    let miliS = 000;
+    
+    ///let s1= new Date(end.getHours()-start.getHours(),end.getMinutes()-start.getMinutes(),end.getSeconds()-start.getSeconds(),end.getMilliseconds()-start.getMilliseconds())                          
+    //let s= "0"+(end.getHours()-start.getHours())+":"+(end.getMinutes()-start.getMinutes())+":0"+(end.getSeconds()-start.getSeconds())+".00"+(end.getMilliseconds()-start.getMilliseconds());
+    return s1.getTime();*/
+        throw new Error('Not implemented');
 }
 
 
@@ -93,8 +108,11 @@ function timeSpanToString(startDate, endDate) {
  *    Date.UTC(2016,3,5,18, 0) => Math.PI
  *    Date.UTC(2016,3,5,21, 0) => Math.PI/2
  */
-function angleBetweenClockHands(date) {
-    throw new Error('Not implemented');
+function angleBetweenClockHands(date) {/*
+    let HRS = date.getHours();
+let rad =parseFloat((0.5*(60*HRS))*(Math.PI/180));
+    return rad; */
+    throw new Error('Not implemented'); 
 }
 
 
